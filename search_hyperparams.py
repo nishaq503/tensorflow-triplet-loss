@@ -1,12 +1,11 @@
-"""Peform hyperparameter search"""
+"""Perform hyper-parameter search"""
 
 import argparse
 import os
-from subprocess import check_call
 import sys
+from subprocess import check_call
 
 from model.utils import Params
-
 
 PYTHON = sys.executable
 parser = argparse.ArgumentParser()
@@ -16,13 +15,15 @@ parser.add_argument('--data_dir', default='data/mnist',
                     help="Directory containing the dataset")
 
 
+# noinspection PyShadowingNames
 def launch_training_job(parent_dir, data_dir, job_name, params):
     """Launch training of the model with a set of hyperparameters in parent_dir/job_name
 
     Args:
         parent_dir: (string) directory containing config, weights and log
         data_dir: (string) directory containing the dataset
-        params: (dict) containing hyperparameters
+        job_name: name of job
+        params: (dict) containing hyper-parameters
     """
     # Create a new folder in parent_dir with unique_name "job_name"
     model_dir = os.path.join(parent_dir, job_name)
@@ -47,7 +48,7 @@ if __name__ == "__main__":
     assert os.path.isfile(json_path), "No json configuration file found at {}".format(json_path)
     params = Params(json_path)
 
-    # Perform hypersearch over one parameter
+    # Perform hyper search over one parameter
     learning_rates = [1e-4, 3e-4, 1e-3, 3e-3]
 
     for learning_rate in learning_rates:

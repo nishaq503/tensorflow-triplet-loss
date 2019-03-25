@@ -1,7 +1,5 @@
 """Create the input data pipeline using `tf.data`"""
 
-import tensorflow as tf
-
 import model.mnist_dataset as mnist_dataset
 
 

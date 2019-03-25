@@ -10,10 +10,9 @@ import tensorflow as tf
 from tensorflow.contrib.tensorboard.plugins import projector
 
 import model.mnist_dataset as mnist_dataset
-from model.utils import Params
 from model.input_fn import test_input_fn
 from model.model_fn import model_fn
-
+from model.utils import Params
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--model_dir', default='experiments/base_model',
@@ -40,7 +39,6 @@ if __name__ == '__main__':
                                     model_dir=args.model_dir,
                                     save_summary_steps=params.save_summary_steps)
     estimator = tf.estimator.Estimator(model_fn, params=params, config=config)
-
 
     # EMBEDDINGS VISUALIZATION
 

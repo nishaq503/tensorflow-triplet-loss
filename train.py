@@ -5,11 +5,10 @@ import os
 
 import tensorflow as tf
 
-from model.input_fn import train_input_fn
 from model.input_fn import test_input_fn
+from model.input_fn import train_input_fn
 from model.model_fn import model_fn
 from model.utils import Params
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--model_dir', default='experiments/base_model',

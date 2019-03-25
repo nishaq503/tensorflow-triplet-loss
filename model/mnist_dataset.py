@@ -18,8 +18,8 @@ import os
 import shutil
 
 import numpy as np
-from six.moves import urllib
 import tensorflow as tf
+from six.moves import urllib
 
 
 def read32(bytestream):

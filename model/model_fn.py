@@ -96,7 +96,6 @@ def model_fn(features, labels, mode, params):
     if mode == tf.estimator.ModeKeys.EVAL:
         return tf.estimator.EstimatorSpec(mode, loss=loss, eval_metric_ops=eval_metric_ops)
 
-
     # Summaries for training
     tf.summary.scalar('loss', loss)
     if params.triplet_strategy == "batch_all":
