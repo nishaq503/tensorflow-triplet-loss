@@ -13,7 +13,7 @@ def build_model(is_training, images, params):
         is_training: (bool) whether we are training or not
         images: (dict) contains the inputs of the graph (features)
                 this can be `tf.placeholder` or outputs of `tf.data`
-        params: (Params) hyperparameters
+        params: (Params) hyper parameters
 
     Returns:
         output: (tf.Tensor) output of the model
@@ -26,7 +26,7 @@ def build_model(is_training, images, params):
     channels = [num_channels, num_channels * 2]
     for i, c in enumerate(channels):
         with tf.variable_scope('block_{}'.format(i+1)):
-            out = tf.layers.conv2d(out, c, 3, padding='same')
+            out = tf.layers.conv2d(inputs=out, filters=c, kernel_size=3, padding='same')
             if params.use_batch_norm:
                 out = tf.layers.batch_normalization(out, momentum=bn_momentum, training=is_training)
             out = tf.nn.relu(out)

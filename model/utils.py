@@ -5,7 +5,7 @@ import logging
 
 
 class Params:
-    """Class that loads hyperparameters from a json file.
+    """Class that loads hyper parameters from a json file.
 
     Example:
     ```
